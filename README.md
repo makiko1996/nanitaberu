@@ -1,24 +1,31 @@
-# README
+# ナニタベル？
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+今晩何食べよう？の悩みに対して料理を提案してくれる晩御飯共有サイト
 
-Things you may want to cover:
+### サイトテーマ
+自分の食べた晩御飯の写真を投稿しシェアしたり、他人の投稿から晩御飯の参考になる料理を見つけるサイト
 
-* Ruby version
+### テーマを選んだ理由
+一人暮らしをした際に、仕事が終わってスーパーに行くものの晩御飯が決まらず、買い物がなかなか進みませんでした。そんな時他のうちは何を食べているんだろう？料理さえ決まればレシピサイトで検索できるのでは？と思い、このテーマにしました。
 
-* System dependencies
+### ターゲットユーザ
+仕事終わり自炊をする一人暮らしユーザーや、主婦
 
-* Configuration
+### 主な利用シーン
+今晩何食べるかが決まっておらず、手間の少ない料理を検索したいとき。簡単で満足できる調理を共有したい時など。
 
-* Database creation
+## 設計書
+<...>
 
-* Database initialization
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/14P--_sltIT9WWO6aKdVEnynd99Nxl1_h15Yu-vvxa6I/edit?usp=sharing
 
-* How to run the test suite
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
