@@ -1,0 +1,11 @@
+<h3>カテゴリー編集</h3>
+
+<%= form_with model:@category, url:admin_category_path, local:true do |f| %>
+<table>
+  <tr>
+    <th>カテゴリー名</th>
+    <th><%= f.text_field :category %></th>
+    <th><%= f.submit"変更する" %></th>
+  </tr>
+</table>
+<% end %>
