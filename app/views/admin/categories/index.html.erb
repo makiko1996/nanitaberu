@@ -5,7 +5,7 @@
  <table>
   <tr>
     <th>料理カテゴリー追加</th>
-    <th><%= f.text_field :category, placeholder: "新しいカテゴリー名" %></th>
+    <th><%= f.text_field :name, placeholder: "新しいカテゴリー名" %></th>
     <th><%= f.submit"追加" %></th>
   </tr>
  </table>
@@ -22,7 +22,7 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.category %></td>
+        <td><%= category.name %></td>
         <td><%= link_to "編集する", edit_admin_category_path(category) %></td>
       </tr>
     <% end %>

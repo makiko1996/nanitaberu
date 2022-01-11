@@ -12,7 +12,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def edit
-  　@category = Category.find(params[:id])
+    @category = Category.find(params[:id])
   end
 
   def update
@@ -23,6 +23,6 @@ class Admin::CategoriesController < ApplicationController
 
   private
     def category_params
-      params.require(:category).permit(:category)
+      params.require(:category).permit(:name)
     end
 end
