@@ -1,0 +1,40 @@
+<h3>投稿編集</h3>
+
+<%= form_with  model:@post, url:post_path(@post), local:true do |f| %>
+<table>
+  <tr>
+    <th>料理名</th>
+    <th><%= f.text_field :cooking_name, placeholder: "料理名" %></th>
+  </tr>
+  <tr>
+    <th>投稿画像</th>
+    <th><%= f.attachment_field :image %></th>
+  </tr>
+  <!--タグつけ-->
+  <tr>
+    <th>使用食材</th>
+    <th><%= f.text_field :tag_name, value: @tag_list, placeholder: "使用食材" %></th>
+  </tr>
+  <tr>
+    <th>料理カテゴリー</th>
+    <th><%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "--選択してください--" %></th>
+  </tr>
+  <tr>
+    <th>調理時間</th>
+    <th><%= f.text_field :cooking_time, placeholder: "調理時間" %></th>
+  </tr>
+  <tr>
+    <th>オモさ</th>
+    <th><%= f.collection_select :taste_id, Taste.all, :id, :name, include_blank: "--選択してください--" %></th>
+  </tr>
+  <tr>
+    <th>参考レシピサイト</th>
+    <th><%= f.text_field :url, placeholder: "参考サイトのURL" %></th>
+  </tr>
+  <tr>
+    <th><%= f.submit "変更を保存" %></th>
+  </tr>
+
+
+</table>
+<% end %>
