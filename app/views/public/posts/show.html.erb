@@ -12,17 +12,18 @@
 <!--投稿詳細の表示-->
 <div class="content_body">
   <%= @post.user.name %>
-  <%= @post.category.name %>
+  料理カテゴリー：<%= @post.category.name %>
   <!--関連するタグの表示-->
   <div class="tag_list">
+    食材
     <% @post_tags.each do |tag| %>
       <%= tag.tag_name %>
     <% end %>
   </div>
-  <%= @post.cooking_time %>分
-  <%= @difficulty_star %>
-  <%= @post.taste.name %>
-  <%= @post.url %> 
+  <!--難易度を星に変換して表示-->
+  <%= @post.display_difficulty %>
+  オモさ：<%= @post.taste.name %>
+  参考レシピURL：<%= @post.url %>
 </div>
 
 <% if current_user.id == @post.user_id %>

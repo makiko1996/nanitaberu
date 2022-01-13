@@ -40,5 +40,14 @@ class Post < ApplicationRecord
     end
   end
 
+  def display_difficulty
+    if self.difficulty = 3
+      return "★★★(調理に30分以上)"
+    elsif self.difficulty = 2
+      return "★★☆(調理に15~30分)"
+    else
+      return "★☆☆(調理に15分未満)"
+    end
+  end
 
 end

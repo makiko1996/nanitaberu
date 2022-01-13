@@ -39,15 +39,6 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     
-    # 難易度を★で表す modelに書き直す
-    if @post.difficulty = 3
-      @difficulty_star = "★★★"
-    elsif @post.difficulty = 2
-      @difficulty_star = "★★☆"
-    else
-      @difficulty_star = "★☆☆"
-    end
-    
     @post_tags = @post.tags
   end
 

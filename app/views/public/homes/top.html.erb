@@ -1,1 +1,18 @@
 <h2>topページ</h2>
+
+<h4>新着投稿</h4>
+
+<div class="card_group">
+  <% @new_posts.each do |new_post| %>
+    <div class="card">
+      <%= link_to post_path(new_post) do %>
+        <%= attachment_image_tag new_post, :image, size:'250x200' %></br>
+        <%= new_post.cooking_name %>
+        <%= new_post.display_difficulty%>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<h4>検索</h4>
+
