@@ -1,0 +1,30 @@
+<h3>投稿詳細</h3> <%= notice %>
+
+<h3 class="content_title">
+  <%= @post.cooking_name %>
+</h3>
+
+<!--投稿画像の表示-->
+<div class="content_image">
+  <%= attachment_image_tag @post, :image, size: "400x300" %>
+</div>
+
+<!--投稿詳細の表示-->
+<div class="content_body">
+  <%= @post.user.name %>
+  <%= @post.category.name %>
+  <!--関連するタグの表示-->
+  <div class="tag_list">
+    <% @post_tags.each do |tag| %>
+      <%= tag.tag_name %>
+    <% end %>
+  </div>
+  <%= @post.cooking_time %>分
+  <%= @difficulty_star %>
+  <%= @post.taste.name %>
+  <%= @post.url %> 
+</div>
+
+<% if current_user.id == @post.user_id %>
+  <%= link_to "編集する", edit_post_path(@post) %>
+<% end %>
