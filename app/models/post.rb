@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   attachment :image
   has_many :tagmaps, dependent: :destroy
   has_many :tags, through: :tagmaps
+  has_many :favorites, dependent: :destroy
 
   # save前に調理時間から難易度の判定をする
   before_save :level
@@ -48,6 +49,10 @@ class Post < ApplicationRecord
     else
       return "★☆☆(調理に15分未満)"
     end
+  end
+  
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
   end
 
 end

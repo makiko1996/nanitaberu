@@ -25,6 +25,9 @@
         <%= link_to "投稿一覧", posts_path %>
       </li>
       <li>
+        <%= link_to "お気に入り一覧", post_favorites_path(current_user) %>
+      </li>
+      <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>
     <% elsif admin_signed_in? %>

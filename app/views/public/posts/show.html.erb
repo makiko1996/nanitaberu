@@ -15,7 +15,7 @@
   料理カテゴリー：<%= @post.category.name %>
   <!--関連するタグの表示-->
   <div class="tag_list">
-    食材
+    食材：
     <% @post_tags.each do |tag| %>
       <%= tag.tag_name %>
     <% end %>
@@ -23,9 +23,20 @@
   <!--難易度を星に変換して表示-->
   <%= @post.display_difficulty %>
   オモさ：<%= @post.taste.name %>
-  参考レシピURL：<%= @post.url %>
+
+  <% if @post.url.present? %>
+   参考レシピURL：<%= @post.url %>
+  <% end %>
 </div>
 
 <% if current_user.id == @post.user_id %>
   <%= link_to "編集する", edit_post_path(@post) %>
+<% elsif @post.favorited_by?(current_user) %>
+  <%= link_to post_favorite_path(@post), method: :delete do %>
+   お気に入りを削除
+  <% end %>
+<% else %>
+  <%= link_to post_favorites_path(@post), method: :post do %>
+    お気に入り登録
+  <% end %>
 <% end %>

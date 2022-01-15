@@ -1,0 +1,17 @@
+<h3>ユーザー情報の変更</h3>
+
+<%= form_with model:@user, url:user_path(@user), local:true do |f| %>
+  <table>
+    <tr>
+      <th>ユーザー名</th>
+      <th><%= f.text_field :name %></th>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <th><%= f.text_field :email %></th>
+    </tr>
+    <tr>
+      <th><%= f.submit "変更を保存" %></th>
+    </tr>
+  </table>
+<% end %>
