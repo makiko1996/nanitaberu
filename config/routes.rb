@@ -23,8 +23,12 @@ Rails.application.routes.draw do
   #会員側のルーティング
   scope module: :public do
    root 'homes#top'
-   resources :posts
-   resources :favorites, only: [:index, :create, :destroy]
-   resources :users, only: [:show, :edit, :update]
+   resources :posts  do
+     resources :favorites, only: [:index, :create, :destroy]
+   end
+   
+   resources :users, only: [:show, :edit, :update] do
+     get :favorites, on: :collection
+   end
   end
 end
