@@ -5,17 +5,17 @@ class Public::PostsController < ApplicationController
     if params[:tag_id]
       @tag = Tag.find(params[:tag_id])
       @post = @tag.posts.all
-      
+
     # カテゴリーで検索した場合の表示　未完成
     elsif params[:category_id]
       @category = Category.find(params[:category_id])
       @posts = @category.posts.all
-      
+
     # ヘッダーの「投稿一覧」をクリックした場合の表示
     else
       @posts = Post.all
     end
-    
+
   end
 
   def new
@@ -24,11 +24,11 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-    
+
     # 空欄でタグの文字列を区切る
     tag_list = params[:post][:tag_name].split(/[[:blank:]]+/)
-    
-    if @post.save
+
+    if @post.save!
       @post.save_tag(tag_list)
       redirect_to posts_path
     else
@@ -48,10 +48,10 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    
+
     # 空欄でタグの文字列を区切る
     tag_list = params[:post][:tag_name].split(/[[:blank:]]+/)
-    
+
     if @post.update(post_params)
       @post.save_tag(tag_list)
       flash[:notice] = "投稿の編集を保存しました"

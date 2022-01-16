@@ -31,14 +31,18 @@ class Post < ApplicationRecord
     old_tags = current_tags - sent_tags
     new_tags = sent_tags - current_tags
 
-    old_tags.each do |old|
-      self.tags.delete Tag.find_by(tag_name: old)
+    old_tags.each do |old_tag|
+      self.tags.delete Tag.find_by(tag_name: old_tag)
     end
 
-    new_tags.each do |new|
-      new_post_tag = Tag.find_or_create_by(tag_name: new)
+    new_tags.each do |new_tag|
+      new_post_tag = Tag.find_or_create_by(tag_name: new_tag)
       self.tags << new_post_tag
     end
+    # tags.each do |tag|
+    #   new_post_tag = Tag.find_or_create_by(tag_name: tag)
+    #   self.tags << new_post_tag
+    # end
   end
 
   def display_difficulty
@@ -50,7 +54,7 @@ class Post < ApplicationRecord
       return "★☆☆(調理に15分未満)"
     end
   end
-  
+
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
