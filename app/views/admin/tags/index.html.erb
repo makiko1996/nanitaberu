@@ -1,0 +1,67 @@
+<div class="notifications">
+  <div class="notice">
+    <%= notice %>
+  </div>
+</div>
+<h3>トップページ食材のカスタマイズ設定</h3>
+
+<%= form_with model: Tag, url: update_tag_admin_tags_path, method: :patch, local:true do |f| %>
+  <table>
+    <tr>
+      <th><%= f.text_field :tag_name, placeholder: "食材名" %></th>
+      <th><%= f.select :selected_food, options_for_select({ "注目食材" => "pickup_food", "表示食材タグ" => "display_food" }) %></th>
+      <th><%= f.submit "追加" %></th>
+    </tr>
+  </table>
+<% end %>
+
+<!--注目食材を使った投稿を表示させるためのタグ登録-->
+<table>
+  <thead>
+    <tr>
+      <th>注目食材一覧</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pickup_food.each do |pickup_food| %>
+      <tr>
+        <th>
+          <%= pickup_food.tag_name %>
+        </th>
+        <th>
+          <%= form_with model: Tag, url: withdrew_tag_admin_tag_path(pickup_food), method: :patch, local:true do |f| %>
+            <%= f.hidden_field :selected_food, :value => "pickup_food" %>
+            <%= f.submit "注目から外す" %>
+          <% end %>
+        </th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!--トップページ上部に表示させる食材名のタグ登録-->
+<table>
+  <thead>
+    <tr>
+      <th>表示食材タグ</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @display_food.each do |display_food| %>
+      <tr>
+        <th>
+          <%= display_food.tag_name %>
+        </th>
+        <th>
+          <%= form_with model: Tag, url: withdrew_tag_admin_tag_path(display_food), method: :patch, local:true do |f| %>
+            <%= f.hidden_field :selected_food, :value => "display_food" %>
+            <%= f.submit "表示から外す" %>
+          <% end %>
+        </th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
