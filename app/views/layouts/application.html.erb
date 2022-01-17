@@ -32,6 +32,15 @@
       </li>
     <% elsif admin_signed_in? %>
       <li>
+        <%= link_to "カテゴリー", admin_categories_path %>
+      </li>
+      <li>
+        <%= link_to "オモさ", admin_tastes_path %>
+      </li>
+      <li>
+        <%= link_to "トップページ設定", admin_tags_path %>
+      </li>
+      <li>
         <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
       </li>
     <% else %>

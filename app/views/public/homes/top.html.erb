@@ -1,18 +1,42 @@
 <h2>topページ</h2>
 
+<!--管理者側で表示食材タグで設定したタグ名を表示-->
+<% @display_foods.each do |display_food| %>
+ <%= link_to posts_path(tag_id: display_food) do %>
+  <%= display_food.tag_name %>
+ <% end %>
+<% end %>
+
 <h4>新着投稿</h4>
+<%= render 'public/posts/top_index', posts: @new_posts %>
 
-<div class="card_group">
-  <% @new_posts.each do |new_post| %>
-    <div class="card">
-      <%= link_to post_path(new_post) do %>
-        <%= attachment_image_tag new_post, :image, size:'250x200' %></br>
-        <%= new_post.cooking_name %>
-        <%= new_post.display_difficulty%>
-      <% end %>
-    </div>
-  <% end %>
-</div>
-
+<!--検索機能-->
 <h4>検索</h4>
 
+<p>料理名で探す</p>
+<%= form_with url: posts_path, method: :get, local: true do |f| %>
+  <%= f.text_field :search_cooking_name %>
+  <%= f.submit "検索" %>
+<% end %>
+
+<p>食材名で探す</p>
+<%= form_with url: posts_path, method: :get, local: true do |f| %>
+  <%= f.text_field :search_food %>
+  <%= f.submit "検索" %>
+<% end %>
+
+
+
+
+<!--管理者側で注目食材に登録した食材に関連する投稿の表示-->
+<h4>注目食材の投稿</h4>
+
+<!--注目食材に登録しているタグ名の表示-->
+<% @pickup_foods.each do |pickup_food| %>
+ <%= link_to posts_path(tag_id: pickup_food) do %>
+  <%= pickup_food.tag_name %>
+ <% end %>
+<% end %>
+
+<!--注目食材を使用した投稿一覧-->
+<%= render 'public/posts/top_index', posts: @pickup_posts %>
