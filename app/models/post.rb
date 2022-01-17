@@ -22,7 +22,7 @@ class Post < ApplicationRecord
 
     #調理時間15分以下の場合
     else
-     self.difficulty = 1
+      self.difficulty = 1
     end
   end
 
@@ -46,12 +46,12 @@ class Post < ApplicationRecord
   end
 
   def display_difficulty
-    if self.difficulty = 3
-      return "★★★(調理に30分以上)"
-    elsif self.difficulty = 2
-      return "★★☆(調理に15~30分)"
-    else
-      return "★☆☆(調理に15分未満)"
+    if self.difficulty == 3
+      "★★★(調理に30分以上)"
+    elsif self.difficulty == 2
+      "★★☆(調理に15~30分)"
+    elsif self.difficulty == 1
+      "★☆☆(調理に15分未満)"
     end
   end
 
@@ -59,4 +59,7 @@ class Post < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
+  def self.search(search_cooking_name)
+    Post.where(["cooking_name LIKE ?", "%#{search_cooking_name}%"])
+  end
 end

@@ -1,5 +1,5 @@
 class Tag < ApplicationRecord
-  has_many :tag_maps, dependent: :destroy
+  has_many :tagmaps, dependent: :destroy
   has_many :posts, through: :tagmaps
 # 管理者側のカスタマイズ設定で注目食材か表示食材のどちらの登録か判断するために使用するカラム
   attr_accessor :selected_food
