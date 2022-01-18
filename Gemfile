@@ -69,6 +69,9 @@ gem 'devise'
 gem 'rails-i18n'
 # 環境変数
 gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
 
 # 画像投稿
 gem "refile", require: "refile/rails", github: "manfe/refile"
