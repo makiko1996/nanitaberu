@@ -1,0 +1,30 @@
+<h3>オモさ</h3>
+
+<!--オモさ追加機能-->
+<%= form_with model:@taste, url:admin_tastes_path, local:true do |f| %>
+ <table>
+   <tr>
+     <th>オモさ名称追加</th>
+     <th><%= f.text_field :name, placeholder: "オモさ名称" %></th>
+     <th><%= f.submit "新規登録" %></th>
+   </tr>
+ </table>
+<% end %>
+
+<!--オモさ一覧表示-->
+<table>
+  <thead>
+    <tr>
+      <th>一覧</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tastes.each do |taste| %>
+      <tr>
+        <td><%= taste.name %></td>
+        <td><%= link_to "編集する", edit_admin_taste_path(taste) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

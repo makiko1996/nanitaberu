@@ -1,0 +1,42 @@
+<h3>投稿詳細</h3> <%= notice %>
+
+<h3 class="content_title">
+  <%= @post.cooking_name %>
+</h3>
+
+<!--投稿画像の表示-->
+<div class="content_image">
+  <%= attachment_image_tag @post, :image, size: "400x300" %>
+</div>
+
+<!--投稿詳細の表示-->
+<div class="content_body">
+  <%= @post.user.name %>
+  料理カテゴリー：<%= @post.category.name %>
+  <!--関連するタグの表示-->
+  <div class="tag_list">
+    食材：
+    <% @post_tags.each do |tag| %>
+      <%= tag.tag_name %>
+    <% end %>
+  </div>
+  <!--難易度を星に変換して表示-->
+  <%= @post.display_difficulty %>
+  オモさ：<%= @post.taste.name %>
+
+  <% if @post.url.present? %>
+   参考レシピURL：<%= @post.url %>
+  <% end %>
+</div>
+
+<% if current_user.id == @post.user_id %>
+  <%= link_to "編集する", edit_post_path(@post) %>
+<% elsif @post.favorited_by?(current_user) %>
+  <%= link_to post_favorite_path(@post), method: :delete do %>
+   お気に入りを削除
+  <% end %>
+<% else %>
+  <%= link_to post_favorites_path(@post), method: :post do %>
+    お気に入り登録
+  <% end %>
+<% end %>
