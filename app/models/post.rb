@@ -60,6 +60,6 @@ class Post < ApplicationRecord
   end
 
   def self.search(search_cooking_name)
-    Post.where(["cooking_name LIKE ?", "%#{search_cooking_name}%"])
+    where(["cooking_name like?", "%#{search_cooking_name}%"])
   end
 end
