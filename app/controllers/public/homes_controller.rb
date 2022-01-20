@@ -3,7 +3,7 @@ class Public::HomesController < ApplicationController
     def top
       
     # 新着投稿の表示
-      @new_posts = Post.order(created_at: :desc)
+      @new_posts = Post.order("posts.created_at DESC")
       
       
     # 表示食材タグ名の表示
