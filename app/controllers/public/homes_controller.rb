@@ -3,7 +3,8 @@ class Public::HomesController < ApplicationController
     def top
       
     # 新着投稿の表示
-      @new_posts = Post.order("posts.create_at DESC").limit(8)
+      @new_posts = Post.order(created_at: :desc)
+      
       
     # 表示食材タグ名の表示
       @display_foods = Tag.where(display_food: true)
