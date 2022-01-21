@@ -1,0 +1,54 @@
+<header>
+  <% if user_signed_in? %>
+    <%= link_to image_tag("logo.png"), root_path, id: "logo" %>
+
+    <nav class="global_nav">
+      <ui>
+        <%= link_to "マイページ", user_path(current_user) %>
+      </ui>
+      <ui>
+        <%= link_to "新規投稿", new_post_path %>
+      </ui>
+      <ui>
+        <%= link_to "投稿一覧", posts_path %>
+      </ui>
+      <ui>
+        <%= link_to "お気に入り一覧", post_favorites_path(current_user) %>
+      </ui>
+      <ui>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </ui>
+    </nav>
+
+    
+  <% elsif admin_signed_in? %>
+    <%= link_to image_tag("logo.png"), root_path, id: "logo" %>
+    
+    <nav class="global_nav">
+      <ui>
+        <%= link_to "カテゴリー", admin_categories_path %>
+      </ui>
+      <ui>
+        <%= link_to "オモさ", admin_tastes_path %>
+      </ui>
+      <ui>
+        <%= link_to "トップページ設定", admin_tags_path %>
+      </ui>
+      <ui>
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+      </ui>
+    </nav>
+    
+  <% else %>
+    <%= link_to image_tag("logo.png"), root_path, id: "logo" %>
+    <nav class="global_nav">
+      <ui>
+        <%= link_to "新規登録", new_user_registration_path %>
+      </ui>
+      <ui>
+        <%= link_to "ログイン", new_user_session_path %>
+      </ui>
+    </nav>
+    
+  <% end %>
+</header>
