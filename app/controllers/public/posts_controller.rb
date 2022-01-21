@@ -1,26 +1,26 @@
 class Public::PostsController < ApplicationController
 
   def index
-    
-    # 表示されたタグをクリックした場合の一覧表示 
+
+  # 表示されたタグをクリックした場合の一覧表示
     if params[:tag_id]
       @tag = Tag.find(params[:tag_id])
       @posts = @tag.posts.all
 
-    # カテゴリーで検索した場合の一覧表示
+　# カテゴリーで検索した場合の一覧表示
     elsif params[:category_id]
       @category = Category.find(params[:category_id])
       @posts = @category.posts.all
-    
-    #料理名で検索した場合の一覧表示
+
+  # 料理名で検索した場合の一覧表示
     elsif params[:search_cooking_name]
       @posts = Post.search(params[:search_cooking_name])
 
-　　#食材名で検索した場合の一覧表示
+  # 　食材名で検索した時の一覧表示
     elsif params[:search_food]
       @tag = Tag.search_tag(params[:search_food])
       @posts = @tag.posts.all
-      
+
     # ヘッダーの「投稿一覧」をクリックした場合の表示（全投稿の表示）
     else
       @posts = Post.all
