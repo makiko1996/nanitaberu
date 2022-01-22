@@ -33,11 +33,16 @@
 <h4>注目食材の投稿</h4>
 
 <!--注目食材に登録しているタグ名の表示-->
-<% @pickup_foods.each do |pickup_food| %>
- <%= link_to posts_path(tag_id: pickup_food) do %>
-  <%= pickup_food.tag_name %>
- <% end %>
-<% end %>
+<div class="flex_box">
+  <% @pickup_foods.each do |pickup_food| %>
+    <div class="flex_post_item">
+      <%= link_to posts_path(tag_id: pickup_food) do %>
+        <%= pickup_food.tag_name %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
 
 <!--注目食材を使用した投稿一覧-->
 <%= render 'public/posts/top_index', posts: @pickup_posts %>

@@ -7,10 +7,14 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--<link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">-->
   </head>
 
   <body>
     <%= render 'layouts/header' %>
+    <%# deivseのフラッシュメッセージを表示 %>
+    <p class="alert"><%= alert %></p>
+
     
     <%= yield %>
   </body>
