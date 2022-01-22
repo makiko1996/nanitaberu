@@ -1,9 +1,9 @@
-<div class="card_group">
+<div class="flex_box">
   <% posts.each do |post| %>
-    <div class="card">
+    <div class="flex_post_item">
       <%= link_to post_path(post) do %>
         <%= attachment_image_tag post, :image, size:'250x200' %></br>
-        <%= post.cooking_name %>
+        <%= post.cooking_name %></br>
         <%= post.display_difficulty%>
       <% end %>
     </div>

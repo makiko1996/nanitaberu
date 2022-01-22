@@ -1,6 +1,9 @@
 <header>
   <% if user_signed_in? %>
-    <%= link_to image_tag("logo.png"), root_path, id: "logo" %>
+  <!--ヘッダーロゴ-->
+    <%= link_to root_path do %>
+     <%= image_tag 'logo.png', alt: 'logo', class: 'logo' %>
+    <% end %>
 
     <nav class="global_nav">
       <ui>
@@ -22,7 +25,10 @@
 
     
   <% elsif admin_signed_in? %>
-    <%= link_to image_tag("logo.png"), root_path, id: "logo" %>
+    <!--ヘッダーロゴ-->
+    <%= link_to root_path do %>
+     <%= image_tag 'logo.png', alt: 'logo', class: 'logo' %>
+    <% end %>
     
     <nav class="global_nav">
       <ui>
@@ -40,7 +46,10 @@
     </nav>
     
   <% else %>
-    <%= link_to image_tag("logo.png"), root_path, id: "logo" %>
+    <!--ヘッダーロゴ-->
+    <%= link_to root_path do %>
+     <%= image_tag 'logo.png', alt: 'logo', class: 'logo' %>
+    <% end %>
     <nav class="global_nav">
       <ui>
         <%= link_to "新規登録", new_user_registration_path %>
