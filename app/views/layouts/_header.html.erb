@@ -2,7 +2,7 @@
   <% if user_signed_in? %>
   <!--ヘッダーロゴ-->
     <%= link_to root_path do %>
-     <%= image_tag 'logo.png', alt: 'logo', class: 'logo' %>
+     <%= image_tag 'logo.png', alt: 'logo', class: 'header_logo' %>
     <% end %>
 
     <nav class="global_nav">
@@ -27,7 +27,7 @@
   <% elsif admin_signed_in? %>
     <!--ヘッダーロゴ-->
     <%= link_to root_path do %>
-     <%= image_tag 'logo.png', alt: 'logo', class: 'logo' %>
+     <%= image_tag 'logo.png', alt: 'logo', class: 'header_logo' %>
     <% end %>
     
     <nav class="global_nav">
@@ -48,7 +48,7 @@
   <% else %>
     <!--ヘッダーロゴ-->
     <%= link_to root_path do %>
-     <%= image_tag 'logo.png', alt: 'logo', class: 'logo' %>
+     <%= image_tag 'logo.png', alt: 'logo', class: 'header_logo' %>
     <% end %>
     <nav class="global_nav">
       <ui>
