@@ -1,28 +1,49 @@
-<h2>ログイン</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
-  
-  <div class="field">
-    <%= f.label :メールアドレス%><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード %><br />
-    <%= f.password_field :password, autocomplete: "current-password", placeholder: "password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :ページを離れてもログインしたままにする %>
+<div class="login">
+  <div class="about">
+    <div class="about_text">
+      <p>
+        <span>今日何食べよう？</span></br>
+        お腹すいた</br>
+        けど何を食べるか決まらない。</br>
+        そんな時、</br>
+        隣の家は何食べてるんだろう？って</br>
+        ちょっと覗けるサイトです。</br>
+      </p>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "ログイン" %>
   </div>
-<% end %>
 
-<%= render "public/shared/links" %>
+
+  <div class="user_box">
+    <h2>ログイン</h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render "public/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :メールアドレス%><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :パスワード %><br />
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "password" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :ページを離れてもログインしたままにする %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "ログイン", class: 'btn btn-next' %>
+      </div>
+    <% end %>
+
+    <%= render "public/shared/links" %>
+
+  </div>
+
+</div>
+

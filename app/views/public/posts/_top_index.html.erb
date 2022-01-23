@@ -3,8 +3,10 @@
     <div class="flex_post_item">
       <%= link_to post_path(post) do %>
         <%= attachment_image_tag post, :image, size:'250x200' %></br>
-        <%= post.cooking_name %></br>
-        <%= post.display_difficulty%>
+        <div class="post_item_name">
+          <span><%= post.cooking_name %></span></br>
+          <%= post.display_difficulty%>        
+        </div>
       <% end %>
     </div>
   <% end %>
