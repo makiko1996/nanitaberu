@@ -7,19 +7,19 @@
 
     <nav class="global_nav">
       <ui>
-        <%= link_to "マイページ", user_path(current_user) %>
+        <%= link_to "マイページ", user_path(current_user), class: "fas fa-house-user" %>
       </ui>
       <ui>
-        <%= link_to "新規投稿", new_post_path %>
+        <%= link_to "新規投稿", new_post_path, class: "fas fa-plus-square" %>
       </ui>
       <ui>
-        <%= link_to "投稿一覧", posts_path %>
+        <%= link_to "投稿一覧", posts_path, class: "fas fa-utensils" %>
       </ui>
       <ui>
-        <%= link_to "お気に入り一覧", post_favorites_path(current_user) %>
+        <%= link_to "お気に入り一覧", post_favorites_path(current_user), class: "fas fa-star" %>
       </ui>
       <ui>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-door-closed" %>
       </ui>
     </nav>
 
@@ -52,10 +52,10 @@
     <% end %>
     <nav class="global_nav">
       <ui>
-        <%= link_to "新規登録", new_user_registration_path %>
+        <%= link_to "新規登録", new_user_registration_path, class: "fas fa-plus-square" %>
       </ui>
       <ui>
-        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "ログイン", new_user_session_path, class: "fas fa-sign-in-alt" %>
       </ui>
     </nav>
     

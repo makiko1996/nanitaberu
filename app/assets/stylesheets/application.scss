@@ -14,6 +14,9 @@
  *= require_self
  */
 
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
 *{
   margin : 0;
   padding : 0;
@@ -40,20 +43,26 @@ img.header_logo {
 .global_nav a {
   text-decoration: none;
   color: #FF6464;
+  margin: 0 10px 0;
 }
 
 body {
+  position: relative;
   background-color: #EEEEEE;
+  padding-bottom: 70px;
+  box-sizing: border-box;
+  min-height: 100vh;
 }
 
 // ログイン画面レイアウト
 .login {
-  background-image: url(login_photo.jpeg);
+  background-image: image-url("login_photo.jpeg");
   background-size: cover;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   background-position: right -100px;
+  min-height: 100vh;
 }
 .about {
   width: 45%;
@@ -61,14 +70,11 @@ body {
   padding: 0 50px;
   text-align: left;
   line-height: 2.5;
+  color: #EEEEEE;
 }
 .about span {
   font-weight: bold;
   font-size: 30px;
-}
-
-.about p {
-  color: #EEEEEE;
 }
 
 .user_box {
@@ -127,38 +133,66 @@ body {
 //   right: -25px;
 // }
 
-img.attachment.post.image {
-  border-radius: 15px 15px 15px 15px;
+.index {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-.flex_box {
+.index__item {
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// img.attachment.post.image {
+//   border-radius: 10px 10px 10px 10px;
+// }
+
+// .flex_box {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+
+// .flex_post_item {
+//   margin: 10px 2px;
+// }
+
+// .post_item_name {
+//   display: inline-block;
+//   color: #91C483;
+// }
+
+// .post_item_name span {
+//   font-weight: bold;
+// }
+
+.newpost__page_all {
+  width: 100%;
+}
+
+.newpost__page_form {
   display: flex;
-  flex-wrap: wrap;
-}
-
-.flex_post_item {
-  margin: 2px;
-}
-
-.post_item_name {
-  display: inline-block;
-  color: #91C483;
-}
-
-.post_item_name span {
-  font-weight: bold;
+  justify-content: center;
+  text-align: left;
+  line-height: 2.5;
 }
 
 footer {
+  position: absolute;
+  bottom: 0;
   width: 100%;
   height: 70px;
   background-color: #FFE163;
   color: #FF6464;
-  text-align: center;
 }
 
-img.footer_logo {
-  height: 60%;
+footer p{
+  text-align: center;
+  line-height: 70px;
 }
 
 // #91C483 green
