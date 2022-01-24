@@ -25,7 +25,10 @@
   オモさ：<%= @post.taste.name %>
 
   <% if @post.url.present? %>
-   参考レシピURL：<%= @post.url %>
+    参考レシピURL：
+    <%= link_to @post.url do %>
+      <%= @post.url %>
+    <% end %>
   <% end %>
 </div>
 

@@ -76,3 +76,8 @@ end
 # 画像投稿
 gem "refile", require: "refile/rails", github: "manfe/refile"
 gem "refile-mini_magick"
+
+# アイコン用
+gem 'font-awesome-sass', '~> 5.13'
+
+gem "jquery-rails"

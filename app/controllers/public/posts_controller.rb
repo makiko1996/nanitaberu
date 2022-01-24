@@ -38,11 +38,11 @@ class Public::PostsController < ApplicationController
     # 空欄でタグの文字列を区切る
     tag_list = params[:post][:tag_name].split(/[[:blank:]]+/)
 
-    if @post.save!
+    if @post.save
       @post.save_tag(tag_list)
       redirect_to posts_path
     else
-      redirect_to posts_path
+      render :new
     end
   end
 
