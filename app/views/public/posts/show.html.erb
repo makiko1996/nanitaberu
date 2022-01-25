@@ -1,45 +1,50 @@
-<h3>投稿詳細</h3> <%= notice %>
-
-<h3 class="content_title">
-  <%= @post.cooking_name %>
-</h3>
-
-<!--投稿画像の表示-->
-<div class="content_image">
-  <%= attachment_image_tag @post, :image, size: "400x300" %>
-</div>
-
-<!--投稿詳細の表示-->
-<div class="content_body">
-  <%= @post.user.name %>
-  料理カテゴリー：<%= @post.category.name %>
-  <!--関連するタグの表示-->
-  <div class="tag_list">
-    食材：
-    <% @post_tags.each do |tag| %>
-      <%= tag.tag_name %>
+<div class="body">
+  <h3>投稿詳細</h3> <%= notice %>
+  <div class="content">
+    <!--投稿画像の表示-->
+    <div class="content__image">
+      <%= attachment_image_tag @post, :image, size: "400x300" %>
+    </div>
+    
+    <!--投稿詳細の表示-->
+    <div class="content__body">
+      <h3>
+        <%= @post.cooking_name %>
+      </h3>
+      <%= @post.user.name %></br>
+      料理カテゴリー：<%= @post.category.name %></br>
+      <!--関連するタグの表示-->
+      <div class="content__tag">
+        食材：
+        <% @post_tags.each do |tag| %>
+          <%= tag.tag_name %>
+        <% end %></br>
+      </div>
+      <!--難易度を星に変換して表示-->
+      <%= @post.display_difficulty %></br>
+      オモさ：<%= @post.taste.name %></br>
+    
+      <% if @post.url.present? %>
+        参考レシピURL：
+        <%= link_to @post.url do %>
+          <%= @post.url %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="content__btn btn btn-2">
+    
+    <% if current_user.id == @post.user_id %>
+      <%= link_to "編集する", edit_post_path(@post) %>
+    <% elsif @post.favorited_by?(current_user) %>
+      <%= link_to post_favorite_path(@post), method: :delete do %>
+       お気に入りを削除
+      <% end %>
+    <% else %>
+      <%= link_to post_favorites_path(@post), method: :post do %>
+        お気に入り登録
+      <% end %>
     <% end %>
   </div>
-  <!--難易度を星に変換して表示-->
-  <%= @post.display_difficulty %>
-  オモさ：<%= @post.taste.name %>
-
-  <% if @post.url.present? %>
-    参考レシピURL：
-    <%= link_to @post.url do %>
-      <%= @post.url %>
-    <% end %>
-  <% end %>
 </div>
-
-<% if current_user.id == @post.user_id %>
-  <%= link_to "編集する", edit_post_path(@post) %>
-<% elsif @post.favorited_by?(current_user) %>
-  <%= link_to post_favorite_path(@post), method: :delete do %>
-   お気に入りを削除
-  <% end %>
-<% else %>
-  <%= link_to post_favorites_path(@post), method: :post do %>
-    お気に入り登録
-  <% end %>
-<% end %>

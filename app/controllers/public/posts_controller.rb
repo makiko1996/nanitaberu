@@ -6,12 +6,7 @@ class Public::PostsController < ApplicationController
     if params[:tag_id]
       @tag = Tag.find(params[:tag_id])
       @posts = @tag.posts.all
-
-　# カテゴリーで検索した場合の一覧表示
-    elsif params[:category_id]
-      @category = Category.find(params[:category_id])
-      @posts = @category.posts.all
-
+      
   # 料理名で検索した場合の一覧表示
     elsif params[:search_cooking_name]
       @posts = Post.search(params[:search_cooking_name])

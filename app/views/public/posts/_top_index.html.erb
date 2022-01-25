@@ -1,13 +1,15 @@
-<div class="flex_box">
-  <% posts.each do |post| %>
-    <div class="flex_post_item">
-      <%= link_to post_path(post) do %>
-        <%= attachment_image_tag post, :image, size:'250x200' %></br>
-        <div class="post_item_name">
-          <span><%= post.cooking_name %></span></br>
-          <%= post.display_difficulty%>        
-        </div>
-      <% end %>
-    </div>
+<div class="index">
+  <% if posts.present? %>
+    <% posts.each do |post| %>
+      <div class="index__item">
+        <%= link_to post_path(post) do %>
+          <%= attachment_image_tag post, :image, size: '250x200' %></br>
+            <span><%= post.cooking_name %></span></br>
+            <%= post.display_difficulty %>
+       <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <h4 class="index__comment">投稿がありません</h4>
   <% end %>
 </div>

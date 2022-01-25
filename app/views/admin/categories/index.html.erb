@@ -1,31 +1,38 @@
-<h3>料理カテゴリー</h3>
+<div class="body">
+  <div class="categories__all">
+    <h3>料理カテゴリー</h3>
+    <div class="categories__form">
+      <!--カテゴリー追加機能-->
+      <%= form_with model:@category, url:admin_categories_path, local:true do |f| %>
+       <table>
+        <tr>
+          <th>料理カテゴリー追加</th>
+          <th><%= f.text_field :name, placeholder: "新しいカテゴリー名" %></th>
+          <th><%= f.submit"追加", class: "btn btn-2" %></th>
+        </tr>
+       </table>
+      <% end %>
+    </div>
+    <div class="categories__item">
+      <!--登録済みカテゴリーの表示-->
+      <table>
+        <thead>
+          <tr>
+            <th>一覧</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @categories.each do |category| %>
+            <tr>
+              <td><%= category.name %></td>
+              <td><%= link_to "編集する", edit_admin_category_path(category), class: "btn btn-2" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-<!--カテゴリー追加機能-->
-<%= form_with model:@category, url:admin_categories_path, local:true do |f| %>
- <table>
-  <tr>
-    <th>料理カテゴリー追加</th>
-    <th><%= f.text_field :name, placeholder: "新しいカテゴリー名" %></th>
-    <th><%= f.submit"追加" %></th>
-  </tr>
- </table>
-<% end %>
-
-<!--登録済みカテゴリーの表示-->
-<table>
-  <thead>
-    <tr>
-      <th>一覧</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= link_to "編集する", edit_admin_category_path(category) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
