@@ -27,45 +27,55 @@
 header {
   width: 100%;
   height: 70px;
-  background-color: #FFE162;
+  background-color: #EEEEEE;
 }
 
-img.header_logo {
+img.header__logo {
   height: 80%;
-  margin: 5px 20px;
+  margin: 5px 30px;
 }
 
-.global_nav {
+.header__nav {
   float: right;
   line-height: 70px;
+  display: flex;
 }
 
-.global_nav a {
+.header__nav a {
   text-decoration: none;
-  color: #FF6464;
+  color: #EF9900;
   margin: 0 10px 0;
+}
+
+.notice {
+  display: inline-block;
 }
 
 body {
   position: relative;
-  background-color: #EEEEEE;
   padding-bottom: 70px;
   box-sizing: border-box;
   min-height: 100vh;
 }
 
+.body {
+  margin: 30px 30px;
+}
+
 // ログイン画面レイアウト
 .login {
   background-image: image-url("login_photo.jpeg");
+  background-attachment: fixed;
   background-size: cover;
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
   background-position: right -100px;
-  min-height: 100vh;
+  min-height: 90vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
+
 .about {
-  width: 45%;
+  width: 100%;
   margin: 100px auto;
   padding: 0 50px;
   text-align: left;
@@ -77,15 +87,15 @@ body {
   font-size: 30px;
 }
 
-.user_box {
-  width: 45%;
-  height: 400px;
-  margin: 100px auto;
+.user__box {
+  width: 100%;
+  margin: 100px 50px;
+  padding: 0 50px;
   text-align: left;
   line-height: 2.5;
 }
 
-.btn-next {
+.btn-1 {
   position: relative;
   border: 1px solid #FFF;
   padding: 8px 30px;
@@ -97,10 +107,74 @@ body {
   transition: all .2s linear;
 }
 
-.btn-next:hover {
-  background: #333;
-  color: #fff;
+.btn-1:hover {
+  background: #333333;
+  color: #FFFFFF;
 }
+
+.btn-2 {
+  position: relative;
+  border: 1px solid #FFF;
+  padding: 5px 15px;
+  display: inline-block;
+  text-align: center;
+  outline: none;
+  background-color: #EEEEEE;
+  transition: all .2s linear;
+}
+
+.btn-2 a {
+  text-decoration: none;
+  color: #EF9900;
+}
+
+.btn-2:hover {
+  background: #EF9900;
+}
+
+.btn-2 a:hover {
+  text-decoration: none;
+  color: #EEEEEE;
+}
+
+h3 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 10px 30px;
+}
+
+.top__tagname {
+  text-align: center;
+}
+
+.top__tag p {
+  display: inline;
+}
+
+.top__searchwindow {
+  margin: 10px 30px;
+}
+
+.content {
+  display: flex;
+}
+.content__image {
+  margin: 20px auto;
+}
+
+.content__body {
+  line-height: 2.5;
+  margin: 20px auto;
+}
+
+.content__btn {
+  margin: 20px;
+}
+
+.userpage__name {
+  margin: 10px 30px;
+}
+
 
 // .btn-next::before {
 //   content:"";
@@ -143,6 +217,19 @@ body {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+  color: #EF9900;
+}
+
+.index__comment {
+  background-image: image-url("not_index.png");
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background-position: center;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -170,14 +257,23 @@ img {
 //   font-weight: bold;
 // }
 
-.newpost__page_all {
+.newpost__all, .useredit__all, .postedit__all,
+.admintop__all, .categories__all, .tastes__all {
   width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
-.newpost__page_form {
+.newpost__form, .useredit__form, .postedit__form,
+.admintop__form, .categories__form, .tastes__form {
   display: flex;
   justify-content: center;
   text-align: left;
+  line-height: 2.5;
+}
+.admintop__tag, .categories__item, .tastes__item {
+  margin: 10px auto;
+  text-align: center;
   line-height: 2.5;
 }
 
@@ -186,8 +282,8 @@ footer {
   bottom: 0;
   width: 100%;
   height: 70px;
-  background-color: #FFE163;
-  color: #FF6464;
+  background-color: #EF9900;
+  color: #EEEEEE;
 }
 
 footer p{
@@ -195,6 +291,95 @@ footer p{
   line-height: 70px;
 }
 
+@media screen and (max-width:768px) {
+
+  header {
+    height: 50px;
+    width: 100%;
+  }
+
+  .header__nav {
+    font-size: 15px;
+    line-height: 0.5;
+    margin: 0 2px;
+    line-height: 50px;
+  }
+
+  .header__nav a {
+    margin: 0 2px;
+  }
+  
+  .about {
+    color: #000000;
+    margin: 100px auto;
+  }
+
+  .user__box {
+    margin: 100px 0 0;
+  }
+
+  .content {
+    display: block;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px 30px;
+  }
+  
+
+  
+  th, td {
+    display: list-item;
+    list-style: none;
+    font-size: 10px;
+    border-bottom: none;
+  }
+
+}
+
+@media screen and (max-width:425px) {
+  header {
+    height: 50px;
+    width: 100%;
+  }
+
+  img.header__logo {
+    height: 80%;
+    text-align: center;
+  }
+
+  .header__nav {
+    font-size: 5px;
+    line-height: 0.5;
+    margin: 0 2px;
+    display: flex;
+  }
+
+  .header__nav a {
+    margin: 0 2px;
+  }
+
+  .about {
+    color: #000000;
+    margin: 10px auto;
+  }
+
+  .user__box {
+    margin: 0;
+  }
+
+  .content {
+    display: block;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px 30px;
+  }
+}
 // #91C483 green
 // #FF6464 red
 // #FFE163 yellow

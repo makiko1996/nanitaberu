@@ -1,55 +1,53 @@
-<div class="newpost__page_all">
-  <h3>新規投稿</h3>
-  <% if @post.errors.any? %>
-    <ul>
-      <li>入力に不備があるため投稿できませんでした。</li>
-    </ul>
-  <% end %>
-   
-   
-  
-  
-  <div class="newpost__page_form">
-  <!--新規投稿用form_with-->
-    <%= form_with model:@post, url:posts_path, local:true do |f| %>
-    <table>
-      <tr>
-        <th>料理名</th>
-        <th><%= f.text_field :cooking_name, placeholder: "料理名" %></th>
-      </tr>
-      <tr>
-        <th>投稿画像</th>
-        <th><%= f.attachment_field :image %></th>
-      </tr>
-      <!--タグつけ-->
-      <tr>
-        <th>使用食材</th>
-        <th><%= f.text_field :tag_name, placeholder: "使用食材" %></th>
-      </tr>
-      <tr>
-        <th>料理カテゴリー</th>
-        <th><%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "--選択してください--" %></th>
-      </tr>
-      <tr>
-        <th>調理時間</th>
-        <th><%= f.text_field :cooking_time, placeholder: "調理時間" %></th>
-      </tr>
-      <tr>
-        <th>オモさ</th>
-        <th><%= f.collection_select :taste_id, Taste.all, :id, :name, include_blank: "--選択してください--" %></th>
-      </tr>
-      <tr>
-        <th>参考レシピサイト</th>
-        <th><%= f.url_field :url, placeholder: "参考サイトのURL" %></th>
-      </tr>
-      <tr>
-        <th><%= f.submit "新規投稿", class: "btn btn-next"%></th>
-      </tr>
-    
-    
-    </table>
+<div class="body">
+  <div class="newpost_all">
+    <h3>新規投稿</h3>
+    <% if @post.errors.any? %>
+      <ul>
+        <li>入力に不備があるため投稿できませんでした。</li>
+      </ul>
     <% end %>
+ 
+    <div class="newpost__form">
+    <!--新規投稿用form_with-->
+      <%= form_with model:@post, url:posts_path, local:true do |f| %>
+      <table>
+        <tr>
+          <th>料理名</th>
+          <th><%= f.text_field :cooking_name, placeholder: "料理名", size: 30 %></th>
+        </tr>
+        <tr>
+          <th>投稿画像</th>
+          <th><%= f.attachment_field :image %></th>
+        </tr>
+        <!--タグつけ-->
+        <tr>
+          <th>使用食材</th>
+          <th><%= f.text_field :tag_name, placeholder: "使用食材", size: 30 %></th>
+        </tr>
+        <tr>
+          <th>料理カテゴリー</th>
+          <th><%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "--選択してください--" %></th>
+        </tr>
+        <tr>
+          <th>調理時間</th>
+          <th><%= f.text_field :cooking_time, placeholder: "調理時間" %>分</th>
+        </tr>
+        <tr>
+          <th>オモさ</th>
+          <th><%= f.collection_select :taste_id, Taste.all, :id, :name, include_blank: "--選択してください--" %></th>
+        </tr>
+        <tr>
+          <th>参考レシピサイト</th>
+          <th><%= f.url_field :url, placeholder: "参考サイトのURL", size: 30 %></th>
+        </tr>
+        <tr>
+          <th><%= f.submit "新規投稿", class: "btn btn-2" %></th>
+        </tr>
+      
+      
+      </table>
+      <% end %>
+    </div>
+  
   </div>
-
 </div>
-

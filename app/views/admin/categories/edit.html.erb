@@ -1,11 +1,16 @@
-<h3>カテゴリー編集</h3>
-
-<%= form_with model:@category, url:admin_category_path, local:true do |f| %>
-<table>
-  <tr>
-    <th>カテゴリー名</th>
-    <th><%= f.text_field :name %></th>
-    <th><%= f.submit"変更する" %></th>
-  </tr>
-</table>
-<% end %>
+<div class="body">
+  <div class="categories__all">
+    <h3>カテゴリー編集</h3>
+    <div class="categories__form">
+      <%= form_with model:@category, url:admin_category_path, local:true do |f| %>
+      <table>
+        <tr>
+          <th>カテゴリー名</th>
+          <th><%= f.text_field :name %></th>
+          <th><%= f.submit"変更する", class: "btn btn-2" %></th>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
