@@ -18,15 +18,15 @@ class Post < ApplicationRecord
   before_save :level
 
   def level
-    #調理時間30分以上の場合
+    # 調理時間30分以上の場合
     if cooking_time >= 30
       self.difficulty = 3
 
-    #調理時間15分以上の場合
+    # 調理時間15分以上の場合
     elsif cooking_time >= 15
       self.difficulty = 2
 
-    #調理時間15分以下の場合
+    # 調理時間15分以下の場合
     else
       self.difficulty = 1
     end
@@ -46,8 +46,8 @@ class Post < ApplicationRecord
       self.tags << new_post_tag
     end
     # tags.each do |tag|
-    #   new_post_tag = Tag.find_or_create_by(tag_name: tag)
-    #   self.tags << new_post_tag
+    # new_post_tag = Tag.find_or_create_by(tag_name: tag)
+    # self.tags << new_post_tag
     # end
   end
 
