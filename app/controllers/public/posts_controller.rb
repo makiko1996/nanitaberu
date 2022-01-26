@@ -1,17 +1,16 @@
 class Public::PostsController < ApplicationController
 
   def index
-
-  # 表示されたタグをクリックした場合の一覧表示
+    # 表示されたタグをクリックした場合の一覧表示
     if params[:tag_id]
       @tag = Tag.find(params[:tag_id])
       @posts = @tag.posts.all
       
-  # 料理名で検索した場合の一覧表示
+    # 料理名で検索した場合の一覧表示
     elsif params[:search_cooking_name]
       @posts = Post.search(params[:search_cooking_name])
 
-  # 　食材名で検索した時の一覧表示
+    # 食材名で検索した時の一覧表示
     elsif params[:search_food]
       @tag = Tag.search_tag(params[:search_food])
       @posts = @tag.posts.all
@@ -20,7 +19,6 @@ class Public::PostsController < ApplicationController
     else
       @posts = Post.all
     end
-
   end
 
   def new
@@ -69,10 +67,10 @@ class Public::PostsController < ApplicationController
   def destroy
   end
 
-
   private
 
-    def post_params
-      params.require(:post).permit(:user_id, :cooking_name, :category_id, :image, :cooking_time, :difficulty, :taste_id, :url)
-    end
+  def post_params
+    params.require(:post).permit(:user_id, :cooking_name, :category_id, :image, :cooking_time, :difficulty, :taste_id, :url)
+  end
+  
 end

@@ -175,38 +175,6 @@ h3 {
   margin: 10px 30px;
 }
 
-
-// .btn-next::before {
-//   content:"";
-//   position: absolute;
-//   top: 50px;
-//   right: -26px;
-//   width: 40px;
-//   height: 1px;
-//   background: #333;
-//   transition: all .2s linear;
-// }
-
-// .btn-next::after {
-//   content:"";
-//   position: absolute;
-//   top: 20px;
-//   right: -21px;
-//   width: 1px;
-//   height: 12px;
-//   background: #333;
-//   transform: skewX(45deg);
-//   transition: all .2s linear;
-// }
-
-// .btn-next:hover::before {
-//   right: -30px;
-// }
-
-// .btn-next:hober::after {
-//   right: -25px;
-// }
-
 .index {
   display: grid;
   gap: 10px;
@@ -234,28 +202,6 @@ img {
   max-width: 100%;
   height: auto;
 }
-
-// img.attachment.post.image {
-//   border-radius: 10px 10px 10px 10px;
-// }
-
-// .flex_box {
-//   display: flex;
-//   flex-wrap: wrap;
-// }
-
-// .flex_post_item {
-//   margin: 10px 2px;
-// }
-
-// .post_item_name {
-//   display: inline-block;
-//   color: #91C483;
-// }
-
-// .post_item_name span {
-//   font-weight: bold;
-// }
 
 .newpost__all, .useredit__all, .postedit__all,
 .admintop__all, .categories__all, .tastes__all {
@@ -328,8 +274,6 @@ footer p{
     margin: 10px 30px;
   }
   
-
-  
   th, td {
     display: list-item;
     list-style: none;
@@ -380,7 +324,3 @@ footer p{
     margin: 10px 30px;
   }
 }
-// #91C483 green
-// #FF6464 red
-// #FFE163 yellow
-// #EEEEEE gray
