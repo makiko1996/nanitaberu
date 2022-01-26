@@ -1,0 +1,386 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+*{
+  margin : 0;
+  padding : 0;
+  box-sizing : border-box;
+  font-family: "M PLUS 1p";
+}
+
+header {
+  width: 100%;
+  height: 70px;
+  background-color: #EEEEEE;
+}
+
+img.header__logo {
+  height: 80%;
+  margin: 5px 30px;
+}
+
+.header__nav {
+  float: right;
+  line-height: 70px;
+  display: flex;
+}
+
+.header__nav a {
+  text-decoration: none;
+  color: #EF9900;
+  margin: 0 10px 0;
+}
+
+.notice {
+  display: inline-block;
+}
+
+body {
+  position: relative;
+  padding-bottom: 70px;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+.body {
+  margin: 30px 30px;
+}
+
+// ログイン画面レイアウト
+.login {
+  background-image: image-url("login_photo.jpeg");
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  background-position: right -100px;
+  min-height: 90vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.about {
+  width: 100%;
+  margin: 100px auto;
+  padding: 0 50px;
+  text-align: left;
+  line-height: 2.5;
+  color: #EEEEEE;
+}
+.about span {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.user__box {
+  width: 100%;
+  margin: 100px 50px;
+  padding: 0 50px;
+  text-align: left;
+  line-height: 2.5;
+}
+
+.btn-1 {
+  position: relative;
+  border: 1px solid #FFF;
+  padding: 8px 30px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #333;
+  transition: all .2s linear;
+}
+
+.btn-1:hover {
+  background: #333333;
+  color: #FFFFFF;
+}
+
+.btn-2 {
+  position: relative;
+  border: 1px solid #FFF;
+  padding: 5px 15px;
+  display: inline-block;
+  text-align: center;
+  outline: none;
+  background-color: #EEEEEE;
+  transition: all .2s linear;
+}
+
+.btn-2 a {
+  text-decoration: none;
+  color: #EF9900;
+}
+
+.btn-2:hover {
+  background: #EF9900;
+}
+
+.btn-2 a:hover {
+  text-decoration: none;
+  color: #EEEEEE;
+}
+
+h3 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 10px 30px;
+}
+
+.top__tagname {
+  text-align: center;
+}
+
+.top__tag p {
+  display: inline;
+}
+
+.top__searchwindow {
+  margin: 10px 30px;
+}
+
+.content {
+  display: flex;
+}
+.content__image {
+  margin: 20px auto;
+}
+
+.content__body {
+  line-height: 2.5;
+  margin: 20px auto;
+}
+
+.content__btn {
+  margin: 20px;
+}
+
+.userpage__name {
+  margin: 10px 30px;
+}
+
+
+// .btn-next::before {
+//   content:"";
+//   position: absolute;
+//   top: 50px;
+//   right: -26px;
+//   width: 40px;
+//   height: 1px;
+//   background: #333;
+//   transition: all .2s linear;
+// }
+
+// .btn-next::after {
+//   content:"";
+//   position: absolute;
+//   top: 20px;
+//   right: -21px;
+//   width: 1px;
+//   height: 12px;
+//   background: #333;
+//   transform: skewX(45deg);
+//   transition: all .2s linear;
+// }
+
+// .btn-next:hover::before {
+//   right: -30px;
+// }
+
+// .btn-next:hober::after {
+//   right: -25px;
+// }
+
+.index {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.index__item {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #EF9900;
+}
+
+.index__comment {
+  background-image: image-url("not_index.png");
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background-position: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// img.attachment.post.image {
+//   border-radius: 10px 10px 10px 10px;
+// }
+
+// .flex_box {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+
+// .flex_post_item {
+//   margin: 10px 2px;
+// }
+
+// .post_item_name {
+//   display: inline-block;
+//   color: #91C483;
+// }
+
+// .post_item_name span {
+//   font-weight: bold;
+// }
+
+.newpost__all, .useredit__all, .postedit__all,
+.admintop__all, .categories__all, .tastes__all {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.newpost__form, .useredit__form, .postedit__form,
+.admintop__form, .categories__form, .tastes__form {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  line-height: 2.5;
+}
+.admintop__tag, .categories__item, .tastes__item {
+  margin: 10px auto;
+  text-align: center;
+  line-height: 2.5;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #EF9900;
+  color: #EEEEEE;
+}
+
+footer p{
+  text-align: center;
+  line-height: 70px;
+}
+
+@media screen and (max-width:768px) {
+
+  header {
+    height: 50px;
+    width: 100%;
+  }
+
+  .header__nav {
+    font-size: 15px;
+    line-height: 0.5;
+    margin: 0 2px;
+    line-height: 50px;
+  }
+
+  .header__nav a {
+    margin: 0 2px;
+  }
+  
+  .about {
+    color: #000000;
+    margin: 100px auto;
+  }
+
+  .user__box {
+    margin: 100px 0 0;
+  }
+
+  .content {
+    display: block;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px 30px;
+  }
+  
+
+  
+  th, td {
+    display: list-item;
+    list-style: none;
+    font-size: 10px;
+    border-bottom: none;
+  }
+
+}
+
+@media screen and (max-width:425px) {
+  header {
+    height: 50px;
+    width: 100%;
+  }
+
+  img.header__logo {
+    height: 80%;
+    text-align: center;
+  }
+
+  .header__nav {
+    font-size: 5px;
+    line-height: 0.5;
+    margin: 0 2px;
+    display: flex;
+  }
+
+  .header__nav a {
+    margin: 0 2px;
+  }
+
+  .about {
+    color: #000000;
+    margin: 10px auto;
+  }
+
+  .user__box {
+    margin: 0;
+  }
+
+  .content {
+    display: block;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px 30px;
+  }
+}
+// #91C483 green
+// #FF6464 red
+// #FFE163 yellow
+// #EEEEEE gray

@@ -6,12 +6,7 @@ class Public::PostsController < ApplicationController
     if params[:tag_id]
       @tag = Tag.find(params[:tag_id])
       @posts = @tag.posts.all
-
-　# カテゴリーで検索した場合の一覧表示
-    elsif params[:category_id]
-      @category = Category.find(params[:category_id])
-      @posts = @category.posts.all
-
+      
   # 料理名で検索した場合の一覧表示
     elsif params[:search_cooking_name]
       @posts = Post.search(params[:search_cooking_name])
@@ -38,11 +33,11 @@ class Public::PostsController < ApplicationController
     # 空欄でタグの文字列を区切る
     tag_list = params[:post][:tag_name].split(/[[:blank:]]+/)
 
-    if @post.save!
+    if @post.save
       @post.save_tag(tag_list)
       redirect_to posts_path
     else
-      redirect_to posts_path
+      render :new
     end
   end
 

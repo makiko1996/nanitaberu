@@ -1,0 +1,63 @@
+<header>
+ <!--ヘッダーロゴ-->
+  <%= link_to root_path do %>
+   <%= image_tag 'logo.png', alt: 'logo', class: 'header__logo' %>
+  <% end %>
+  
+  <% if user_signed_in? %>
+
+    <nav class="header__nav">
+      <ul>
+        <%= link_to "マイページ", user_path(current_user), class: "header__nav_item fas fa-house-user" %>
+      </ul>
+      <ul>
+        <%= link_to "新規投稿", new_post_path, class: "header__nav_item fas fa-plus-square" %>
+      </ul>
+      <ul>
+        <%= link_to "投稿一覧", posts_path, class: "header__nav_item fas fa-utensils" %>
+      </ul>
+      <ul>
+        <%= link_to "お気に入り", post_favorites_path(current_user), class: "header__nav_item fas fa-star" %>
+      </ul>
+      <ul>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__nav_item fas fa-door-closed" %>
+      </ul>
+    </nav>
+
+    
+  <% elsif admin_signed_in? %>
+
+    <nav class="header__nav">
+      <ul>
+        <%= link_to "カテゴリー", admin_categories_path, class: "header__nav_item" %>
+      </ul>
+      <ul>
+        <%= link_to "オモさ", admin_tastes_path, class: "header__nav_item" %>
+      </ul>
+      <ul>
+        <%= link_to "トップページ設定", admin_tags_path, class: "header__nav_item" %>
+      </ul>
+      <ul>
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "header__nav_item" %>
+      </ul>
+    </nav>
+    
+  <% else %>
+
+    <nav class="header__nav">
+      <ul>
+        <%= link_to "新規登録", new_user_registration_path, class: "header__nav_item fas fa-plus-square" %>
+      </ul>
+      <ul>
+        <%= link_to "ログイン", new_user_session_path, class: "header__nav_item fas fa-sign-in-alt" %>
+      </ul>
+    </nav>
+    
+  <% end %>
+  <!--エラーメッセージの表示-->
+  <p class="notice">
+    <%= notice %>
+  </p>
+</header>
+    
+

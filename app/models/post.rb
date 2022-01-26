@@ -7,6 +7,12 @@ class Post < ApplicationRecord
   has_many :tagmaps, dependent: :destroy
   has_many :tags, through: :tagmaps
   has_many :favorites, dependent: :destroy
+  
+  validates :cooking_name, presence: true
+  validates :category_id, presence: true
+  validates :image, presence: true
+  validates :cooking_time, presence: true
+  validates :taste_id, presence: true
 
   # save前に調理時間から難易度の判定をする
   before_save :level

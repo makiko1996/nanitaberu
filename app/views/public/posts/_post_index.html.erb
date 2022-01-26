@@ -1,11 +1,15 @@
-<div class="card_group">
-  <% posts.each do |post| %>
-    <div class="card">
-      <%= link_to post_path(post) do %>
-        <%= attachment_image_tag post, :image, size:'250x200' %></br>
-        <%= post.cooking_name %>
-        <%= post.display_difficulty %>
-      <% end %>
-    </div>
+<div class="index">
+  <% if posts.present? %>
+    <% posts.each do |post| %>
+      <div class="index__item">
+        <%= link_to post_path(post) do %>
+          <%= attachment_image_tag post, :image, size: '250x200' %></br>
+            <span><%= post.cooking_name %></span></br>
+            <%= post.display_difficulty %>
+       <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="index__comment"></div>
   <% end %>
 </div>
