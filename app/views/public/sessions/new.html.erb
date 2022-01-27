@@ -3,6 +3,9 @@
 
   <div class="user__box">
     <h2>ログイン</h2>
+    
+    <%# deivseのフラッシュメッセージを表示 %>
+    <p class="alert"><%= alert %></p>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>

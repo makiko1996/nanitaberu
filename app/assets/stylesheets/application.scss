@@ -25,26 +25,34 @@
 }
 
 header {
-  width: 100%;
   height: 70px;
   background-color: #EEEEEE;
+  width: 100%;
+  display: flex;
+  text-aline: right;
+  justify-content: space-between;
+}
+.header__nav ul {
+  display: inline-block;
+  line-height: 70px;
+}
+.header__nav li {
+  display: inline;
+  text-decoration: none;
+  color: #EF9900;
+  margin: 0 10px 0;
 }
 
 img.header__logo {
   height: 80%;
-  margin: 5px 30px;
+  margin-top: 5px;
+  margin-left: 100px;
 }
 
-.header__nav {
-  float: right;
-  line-height: 70px;
-  display: flex;
-}
+
 
 .header__nav a {
-  text-decoration: none;
-  color: #EF9900;
-  margin: 0 10px 0;
+  
 }
 
 .notice {
@@ -59,7 +67,7 @@ body {
 }
 
 .body {
-  margin: 30px 30px;
+  margin: 30px 30px 55px;
 }
 
 // ログイン画面レイアウト
@@ -193,8 +201,7 @@ a {
 .index__comment {
   background-image: image-url("not_index.png");
   background-repeat: no-repeat;
-  box-sizing: border-box;
-  min-height: 100vh;
+  min-height: 60vh;
   background-position: center;
 }
 
@@ -224,15 +231,26 @@ img {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+ .footer__img {
+  bottom: 70px;
+  width: 100%;
+  text-align: center;
+ }
+}
+
+
+ 
+.footer__login, .footer__global {
   width: 100%;
   height: 70px;
   background-color: #EF9900;
   color: #EEEEEE;
 }
 
-footer p{
+footer p {
   text-align: center;
   line-height: 70px;
 }
@@ -244,11 +262,10 @@ footer p{
     width: 100%;
   }
 
-  .header__nav {
+  .header__nav ul {
     font-size: 15px;
-    line-height: 0.5;
-    margin: 0 2px;
     line-height: 50px;
+    margin: 0 2px;
   }
 
   .header__nav a {
@@ -294,9 +311,9 @@ footer p{
     text-align: center;
   }
 
-  .header__nav {
+  .header__nav ul {
     font-size: 5px;
-    line-height: 0.5;
+    line-height: 50px;
     margin: 0 2px;
     display: flex;
   }
