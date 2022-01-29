@@ -13,7 +13,7 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   
   # 本番の時はtrue→falseに
-  config.consider_all_requests_local       = true
+  config.consider_all_requests_local       = true #falseをtrue
   
   config.action_controller.perform_caching = true
 
