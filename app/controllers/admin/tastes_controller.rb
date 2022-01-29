@@ -23,7 +23,7 @@ class Admin::TastesController < ApplicationController
   
   private
   
-  def tastes_params
+  def taste_params
     params.require(:taste).permit(:name)
-　end
+  end
 end
