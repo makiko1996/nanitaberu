@@ -29,7 +29,6 @@ header {
   background-color: #EEEEEE;
   width: 100%;
   display: flex;
-  text-aline: right;
   justify-content: space-between;
 }
 .header__nav ul {
@@ -47,12 +46,6 @@ img.header__logo {
   height: 80%;
   margin-top: 5px;
   margin-left: 100px;
-}
-
-
-
-.header__nav a {
-  
 }
 
 .notice {
@@ -129,18 +122,12 @@ body {
   outline: none;
   background-color: #EEEEEE;
   transition: all .2s linear;
-}
-
-.btn-2 a {
   text-decoration: none;
   color: #EF9900;
 }
 
 .btn-2:hover {
   background: #EF9900;
-}
-
-.btn-2 a:hover {
   text-decoration: none;
   color: #EEEEEE;
 }
@@ -176,7 +163,7 @@ h3 {
 }
 
 .content__btn {
-  margin: 20px;
+  text-align: center;
 }
 
 .userpage__name {
@@ -241,8 +228,6 @@ footer {
  }
 }
 
-
- 
 .footer__login, .footer__global {
   width: 100%;
   height: 70px;
@@ -260,15 +245,22 @@ footer p {
   header {
     height: 50px;
     width: 100%;
+    display: block;
+  }
+  
+  img.header__logo {
+    display: block;
+    margin: 0 auto;
   }
 
   .header__nav ul {
-    font-size: 15px;
+    display: block;
+    font-size: 10px;
     line-height: 50px;
-    margin: 0 2px;
+    text-align: center;
   }
 
-  .header__nav a {
+  .header__nav li {
     margin: 0 2px;
   }
   
@@ -297,7 +289,6 @@ footer p {
     font-size: 10px;
     border-bottom: none;
   }
-
 }
 
 @media screen and (max-width:425px) {

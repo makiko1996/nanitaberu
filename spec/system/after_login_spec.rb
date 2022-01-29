@@ -64,6 +64,8 @@ describe 'ユーザーログイン後のテスト' do
     end
   end
   describe '新規投稿のテスト' do
+    let!(:category) { create(:category) }
+    let!(:taste) { create(:taste) }
     before do
     visit new_post_path
     end
@@ -96,12 +98,34 @@ describe 'ユーザーログイン後のテスト' do
         fill_in 'post[cooking_name]', with: Faker::Lorem.characters(number: 10)
         attach_file 'post[image]', "#{Rails.root}/spec/fixtures/images/test.png"
         fill_in 'post[tag_name]', with: Faker::Lorem.characters(number: 5)
-        # select "魚料理", from: 'post[category_id]'
-        cooking_time { Faker::Number.between(to: 30) }
-        select "普通", from: "taste_id"
+        select "#{ category.name }", from: 'post[category_id]'
+        fill_in 'post[cooking_time]', with: Faker::Number.between(to: 30) 
+        select "#{ taste.name }", from: 'post[taste_id]'
       end
       it '正しく新規登録ができる' do
         expect { click_button '新規投稿' }.to change(Post.all, :count).by(1)
+      end
+      it 'リダイレクト先が、一覧画面になっている' do
+        click_button '新規投稿'
+        expect(current_path).to eq '/posts'
+      end
+    end
+  end
+  describe 'マイページのテスト' do
+    before do
+      visit user_path(user)
+    end
+    
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/users/' + user.id.to_s
+      end
+      it '「ユーザー名の投稿」と表示される' do
+        expect(page).to have_content "#{ user.name }の投稿"
+      end
+      it 'ユーザー編集のリンクがある' do
+        user_edit_link = find_all('a')[6].native.inner_text
+        expect(page).to have_link user_edit_link, href: '/users/' + user.id.to_s + '/edit'
       end
     end
   end

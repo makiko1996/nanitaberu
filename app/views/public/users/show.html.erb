@@ -6,16 +6,13 @@
           <%= @user.name %>の投稿
         </h3>
       </div>
-  
       <!--ユーザー情報の編集-->
-      <div class="userpage__edit btn btn-2">
+      <div class="userpage__edit">
         <% if @user.id == current_user.id %>
-          <%= link_to "ユーザー情報の編集", edit_user_path(@user) %>
+          <%= link_to "ユーザー情報の編集", edit_user_path(@user), class: "btn btn-2" %>
         <% end %>
       </div>
     </div>
-  
-  
     <!--特定ユーザーの投稿のみ表示-->
     <%= render 'public/posts/post_index', posts: @posts %>
   </div>
