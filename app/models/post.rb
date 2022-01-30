@@ -45,10 +45,6 @@ class Post < ApplicationRecord
       new_post_tag = Tag.find_or_create_by(tag_name: new_tag)
       self.tags << new_post_tag
     end
-    # tags.each do |tag|
-    # new_post_tag = Tag.find_or_create_by(tag_name: tag)
-    # self.tags << new_post_tag
-    # end
   end
 
   def display_difficulty
