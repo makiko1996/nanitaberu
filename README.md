@@ -29,7 +29,7 @@
 
 ## 設計書
 - ER図　https://drive.google.com/file/d/1hjkwEJpsAwk8WsvkW7ooFf6_QnGYvZGM/view?usp=sharing
-- テーブル定義書　https://drive.google.com/file/d/1i-AW_9j1vgOhrlF3GOou3h0jHQSnhC5Y/view?usp=sharing
+- テーブル定義書　https://docs.google.com/spreadsheets/d/1LJ01-FxL1WQb_xiT765Omz9O3B50_-TxzNYxQJgPZuw/edit?usp=sharing
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/14P--_sltIT9WWO6aKdVEnynd99Nxl1_h15Yu-vvxa6I/edit?usp=sharing
