@@ -278,7 +278,7 @@ footer p {
   
   .header__nav ul {
     display: block;
-    font-size: 10px;
+    font-size: 13px;
     line-height: 50px;
     text-align: center;
     margin: 5px 0;
@@ -344,6 +344,9 @@ footer p {
     position: absolute;
     top: 20px;
     left: 20px;
+    color: #7b7878;
+    font-weight: bold;
+    font-family: fantasy;
   }
   
   .header__nav ul {
