@@ -321,6 +321,15 @@ footer p {
 }
 
 @media screen and (max-width:425px) {
+  
+  .btn1 {
+    z-index: 0;
+  }
+  
+  .btn2 {
+    z-index: 0;
+  }
+  
   header {
     height: 50px;
     width: 100%;
@@ -338,6 +347,7 @@ footer p {
   }
   
   .header__nav ul {
+    z-index: 1;
     position: absolute;
     left: -500px;
     height: 70%;
