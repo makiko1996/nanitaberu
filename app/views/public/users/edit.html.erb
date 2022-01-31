@@ -1,5 +1,10 @@
 <div class="body">
   <h3>ユーザー情報の変更</h3>
+  <% if @user.errors.any? %>
+    <ul>
+      <li>入力に不備があるため更新できませんでした。</li>
+    </ul>
+  <% end %>
   <div class"useredit__all">
     <div class="useredit__form">
       <%= form_with model:@user, url:user_path(@user), local:true do |f| %>

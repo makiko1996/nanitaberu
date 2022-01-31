@@ -3,53 +3,69 @@
   <%= link_to root_path do %>
    <%= image_tag 'logo.png', alt: 'logo', class: 'header__logo' %>
   <% end %>
+  <!--ハンバーガーメニュー-->
+  <input id="menu" type="checkbox" />
+  <label for="menu" class="menu__open">menu</label>
+  <label for="menu" class="menu__back"></label>
   
   <% if user_signed_in? %>
+    <label for="menu" class="menu__close"></label>
 
     <nav class="header__nav">
       <ul>
-        <%= link_to "マイページ", user_path(current_user), class: "header__nav_item fas fa-house-user" %>
-      </ul>
-      <ul>
-        <%= link_to "新規投稿", new_post_path, class: "header__nav_item fas fa-plus-square" %>
-      </ul>
-      <ul>
-        <%= link_to "投稿一覧", posts_path, class: "header__nav_item fas fa-utensils" %>
-      </ul>
-      <ul>
-        <%= link_to "お気に入り", post_favorites_path(current_user), class: "header__nav_item fas fa-star" %>
-      </ul>
-      <ul>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__nav_item fas fa-door-closed" %>
+        <li>
+          <%= link_to "マイページ", user_path(current_user), class: "header__nav_item fas fa-house-user" %>
+        </li>
+        <li>
+          <%= link_to "新規投稿", new_post_path, class: "header__nav_item fas fa-plus-square" %>
+        </li>
+        <li>
+          <%= link_to "投稿一覧", posts_path, class: "header__nav_item fas fa-utensils" %>
+        </li>
+        <li>
+          <%= link_to "お気に入り", post_favorites_path(current_user), class: "header__nav_item fas fa-star" %>
+        </li>
+        <li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" }, class: "header__nav_item fas fa-door-closed" %> 
+        </li>
       </ul>
     </nav>
-
     
   <% elsif admin_signed_in? %>
+    <label for="menu" class="back"></label>
 
     <nav class="header__nav">
       <ul>
-        <%= link_to "カテゴリー", admin_categories_path, class: "header__nav_item" %>
-      </ul>
-      <ul>
-        <%= link_to "オモさ", admin_tastes_path, class: "header__nav_item" %>
-      </ul>
-      <ul>
-        <%= link_to "トップページ設定", admin_tags_path, class: "header__nav_item" %>
-      </ul>
-      <ul>
-        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "header__nav_item" %>
+       
+        <li>
+          <%= link_to "カテゴリー", admin_categories_path, class: "header__nav_item" %>
+        </li>
+        <li>
+          <%= link_to "オモさ", admin_tastes_path, class: "header__nav_item" %>
+        </li>
+        <li>
+          <%= link_to "トップページ設定", admin_tags_path, class: "header__nav_item" %>
+        </li>
+        <li>
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, data: { confirm: "ログアウトしますか？" }, class: "header__nav_item" %>
+        </li>
       </ul>
     </nav>
     
   <% else %>
+    <label for="menu" class="back"></label>
 
     <nav class="header__nav">
       <ul>
-        <%= link_to "新規登録", new_user_registration_path, class: "header__nav_item fas fa-plus-square" %>
-      </ul>
-      <ul>
-        <%= link_to "ログイン", new_user_session_path, class: "header__nav_item fas fa-sign-in-alt" %>
+        <li>
+          <%= link_to "投稿一覧", posts_path, class: "header__nav_item fas fa-utensils" %>
+        </li>
+        <li>
+          <%= link_to "新規登録", new_user_registration_path, class: "header__nav_item fas fa-plus-square" %>
+        </li>
+        <li>
+          <%= link_to "ログイン", new_user_session_path, class: "header__nav_item fas fa-sign-in-alt" %>
+        </li>
       </ul>
     </nav>
     

@@ -1,5 +1,10 @@
 <div class="body">
   <h3>投稿編集</h3>
+  <% if @post.errors.any? %>
+    <ul>
+      <li>入力に不備があるため更新できませんでした。</li>
+    </ul>
+  <% end %>
   <div class="postedit__all">
     <div class="postedit__form">
       <%= form_with model:@post, url:post_path(@post), local:true do |f| %>

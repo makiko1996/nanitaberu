@@ -1,3 +1,15 @@
-<footer class="text-center">
-  <p>nanitaberu? since2022</p>
+<footer>
+  <% if current_page?(new_user_registration_path) || current_page?(new_user_session_path) %>
+    <div class="footer__login">
+      <p>nanitaberu? since2022</p>
+    </div>
+  <% else %>
+    <div class="footer__img">
+      <!--フッターーロゴ-->
+      <%= image_tag 'footer.png' %>
+    </div>
+    <div class="footer__global">
+      <p>nanitaberu? since2022</p>
+    </div>
+  <% end %>
 </footer>
