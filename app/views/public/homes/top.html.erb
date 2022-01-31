@@ -39,7 +39,7 @@
     <div class="top__tagname">
       <p>本日の注目食材！</p>
       <% @pickup_foods.each do |pickup_food| %>
-        "・"<%= link_to posts_path(tag_id: pickup_food) do %>
+          <%= link_to posts_path(tag_id: pickup_food) do %>
           <%= pickup_food.tag_name %>
         <% end %>
       <% end %>

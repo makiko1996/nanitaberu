@@ -3,8 +3,13 @@
   <%= link_to root_path do %>
    <%= image_tag 'logo.png', alt: 'logo', class: 'header__logo' %>
   <% end %>
+  <!--ハンバーガーメニュー-->
+  <input id="menu" type="checkbox" />
+  <label for="menu" class="menu__open">menu</label>
+  <label for="menu" class="menu__back"></label>
   
   <% if user_signed_in? %>
+    <label for="menu" class="menu__close"></label>
 
     <nav class="header__nav">
       <ul>
@@ -27,6 +32,7 @@
     </nav>
     
   <% elsif admin_signed_in? %>
+    <label for="menu" class="back"></label>
 
     <nav class="header__nav">
       <ul>
@@ -47,6 +53,7 @@
     </nav>
     
   <% else %>
+    <label for="menu" class="back"></label>
 
     <nav class="header__nav">
       <ul>
