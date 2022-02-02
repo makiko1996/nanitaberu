@@ -184,6 +184,10 @@ h3 {
   line-height: 2.5;
 }
 
+.content__url {
+  word-wrap: break-word;
+}
+
 .content__btn {
   grid-row: 2 / 3;
   grid-column: 3/ 4;

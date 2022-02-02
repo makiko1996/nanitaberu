@@ -26,9 +26,11 @@
     
       <% if @post.url.present? %>
         参考レシピURL：
-        <%= link_to @post.url do %>
-          <%= @post.url %>
-        <% end %>
+        <div class="content__url">
+          <%= link_to @post.url do %>
+            <%= @post.url %>
+          <% end %>
+        </div>
       <% end %>
     </div>
     <div class="content__btn">
