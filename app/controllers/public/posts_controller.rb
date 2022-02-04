@@ -30,12 +30,18 @@ class Public::PostsController < ApplicationController
 
     # 空欄でタグの文字列を区切る
     tag_list = params[:post][:tag_name].split(/[[:blank:]]+/)
-
-    if @post.save
-      @post.save_tag(tag_list)
-      redirect_to posts_path
+    # Google Vision APIで画像からfoodが検出された場合は保存
+    if Vision.get_image_data(@post.image).include?( "Food" || "Salad")
+      if @post.save
+        @post.save_tag(tag_list)
+        redirect_to posts_path
+      else
+        render 'new'
+      end
+    # 画像からfoodが検出されない場合は保存できない
     else
-      render :new
+      flash[:notice] = "食品ではない画像の可能性があるため投稿できません。"
+      render 'new'
     end
   end
 
@@ -54,14 +60,22 @@ class Public::PostsController < ApplicationController
 
     # 空欄でタグの文字列を区切る
     tag_list = params[:post][:tag_name].split(/[[:blank:]]+/)
-
-    if @post.update(post_params)
-      @post.save_tag(tag_list)
-      flash[:notice] = "投稿の編集を保存しました"
-      redirect_to post_path(@post)
-    else
-      render 'edit'
-    end
+    
+    # Google Vision APIで画像からfoodが検出された場合は保存
+    # if Vision.get_image_data(post_params[:image]).include?( "Food" || "Salad")
+    #   byebug
+      if @post.update(post_params)
+        @post.save_tag(tag_list)
+        flash[:notice] = "投稿の編集を保存しました"
+        redirect_to post_path(@post)
+      else
+        render 'edit'
+      end
+    # 画像からfoodが検出されない場合は保存できない
+    # else
+    #   flash[:notice] = "食品ではない画像の可能性があるため投稿できません。"
+    #   render 'edit'
+    # end
   end
 
   def destroy
