@@ -76,7 +76,7 @@ group :production do
 end
 
 # 画像投稿
-gem "refile", require: "refile/rails", github: "manfe/refile"
+gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
 # アイコン用
