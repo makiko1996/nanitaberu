@@ -16,9 +16,11 @@
   <body>
     <%= render 'layouts/header' %>
       <!--エラーメッセージの表示-->
-      <p class="notice">
-        <%= notice %>
-      </p>
+      <% unless current_page?(new_user_session_path || new_user_registration_path || new_admin_session_path) then %>
+        <p class="notice">
+          <%= notice %>
+        </p>
+      <% end %>
 
 
     <%= yield %>
