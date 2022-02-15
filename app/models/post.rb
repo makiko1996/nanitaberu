@@ -17,7 +17,6 @@ class Post < ApplicationRecord
   # save前に調理時間から難易度の判定をする
   before_save :level
 
-
   def level
     # 調理時間30分以上の場合
     if cooking_time >= 30
