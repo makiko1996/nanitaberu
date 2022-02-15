@@ -16,9 +16,7 @@ class Post < ApplicationRecord
 
   # save前に調理時間から難易度の判定をする
   before_save :level
-  
-  # 投稿画像が食品であるか判断（Google Vision API）
-  # before_save :image_confirmation
+
 
   def level
     # 調理時間30分以上の場合
@@ -34,10 +32,6 @@ class Post < ApplicationRecord
       self.difficulty = 1
     end
   end
-  
-  # def image_confirmation
-  #   Vision.get_image_data(self.image).include?( "Food" || "Salad")
-  # end
 
   def save_tag(sent_tags)
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
