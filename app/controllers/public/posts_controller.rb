@@ -5,7 +5,7 @@ class Public::PostsController < ApplicationController
     if params[:tag_id]
       @tag = Tag.find(params[:tag_id])
       @posts = @tag.posts.all
-      
+
     # 料理名で検索した場合の一覧表示
     elsif params[:search_cooking_name]
       @posts = Post.search(params[:search_cooking_name])
@@ -31,7 +31,7 @@ class Public::PostsController < ApplicationController
     # 空欄でタグの文字列を区切る
     tag_list = params[:post][:tag_name].split(/[[:blank:]]+/)
     # Google Vision APIで画像からfoodが検出された場合は保存
-    if Vision.get_image_data(@post.image).include?( "Food" || "Salad")
+    if Vision.get_image_data(params[:post][:image]).include?( "Food" || "Salad")
       if @post.save
         @post.save_tag(tag_list)
         redirect_to posts_path
@@ -60,10 +60,9 @@ class Public::PostsController < ApplicationController
 
     # 空欄でタグの文字列を区切る
     tag_list = params[:post][:tag_name].split(/[[:blank:]]+/)
-    
     # Google Vision APIで画像からfoodが検出された場合は保存
-    # if Vision.get_image_data(post_params[:image]).include?( "Food" || "Salad")
-    #   byebug
+    if Vision.get_image_data(params[:post][:image]).include?( "Food" || "Salad")
+      # 画像からfoodが検出された場合は
       if @post.update(post_params)
         @post.save_tag(tag_list)
         flash[:notice] = "投稿の編集を保存しました"
@@ -72,10 +71,11 @@ class Public::PostsController < ApplicationController
         render 'edit'
       end
     # 画像からfoodが検出されない場合は保存できない
-    # else
-    #   flash[:notice] = "食品ではない画像の可能性があるため投稿できません。"
-    #   render 'edit'
-    # end
+    else
+      flash[:notice] = "食品ではない画像の可能性があるため投稿できません。"
+      render 'edit'
+    end
+
   end
 
   def destroy
@@ -90,5 +90,5 @@ class Public::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:user_id, :cooking_name, :category_id, :image, :cooking_time, :difficulty, :taste_id, :url)
   end
-  
+
 end

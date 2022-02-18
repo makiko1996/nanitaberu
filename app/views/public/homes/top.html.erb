@@ -11,12 +11,12 @@
     </div>
   </div>
   
-  <h3 >新着投稿</h3>
+  <h3>新着</h3>
    <%= render 'public/posts/top_index', posts: @new_posts %>
    
   <!--検索機能-->
   <div class="top__search">
-    <h3>検索</h3>
+    <h3>料理を探す</h3>
     <div class="top__searchwindow">
       <p>料理名で探す</p>
       <%= form_with url: posts_path, method: :get, local: true do |f| %>
@@ -33,7 +33,7 @@
   </div>
   
   <!--管理者側で注目食材に登録した食材に関連する投稿の表示-->
-  <h3>注目食材の投稿</h3>
+  <h3>今注目の食材！</h3>
   <!--注目食材に登録しているタグ名の表示-->
   <div class="top__tag">
     <div class="top__tagname">
