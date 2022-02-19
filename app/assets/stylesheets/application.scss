@@ -76,6 +76,19 @@ body {
   margin: 30px 30px 55px;
 }
 
+// トップへ戻るボタン
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1;
+}
+
+.arrow {
+  width: 30px;
+  height: 30px;
+}
+
 // ログイン/新規登録画面レイアウト
 .login {
   background-image: image-url("login_photo.jpeg");
@@ -342,6 +355,7 @@ footer p {
     display: block;
   }
 
+　// menuボタン
   .menu__open, .menu__close {
     display: block;
   }
@@ -371,7 +385,7 @@ footer p {
   .header__nav li {
     display: block;
   }
-
+  
   input[type="checkbox"]:checked ~ .header__nav ul {
     left: 0;
   }
