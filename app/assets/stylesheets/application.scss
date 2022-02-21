@@ -32,7 +32,6 @@ header {
   justify-content: space-between;
 }
 
-
 // メニュー表示のレスポンシブ対応用　ここから
 .menu__open, .menu__close {
   display: none;
@@ -77,7 +76,7 @@ body {
 }
 
 // トップへ戻るボタン
-#back {
+#page__top {
   position: fixed;
   right: 20px;
   bottom: 20px;
@@ -356,11 +355,12 @@ footer p {
   }
 
 　// menuボタン
-  .menu__open, .menu__close {
-    display: block;
+  .menu__close {
+    display:block;
   }
 
   .menu__open {
+    display:block;
     position: absolute;
     top: 20px;
     left: 20px;
@@ -385,7 +385,7 @@ footer p {
   .header__nav li {
     display: block;
   }
-  
+
   input[type="checkbox"]:checked ~ .header__nav ul {
     left: 0;
   }
