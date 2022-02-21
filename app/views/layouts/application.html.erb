@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nanitaberu</title>
+    <title>ナニタベル</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
@@ -24,6 +24,12 @@
 
 
     <%= yield %>
+    
+    <span id="back">
+      <a href="">
+        <%= image_tag asset_path('arrow.png'), data: {"turbolinks"=>false}, class: 'arrow' %>
+      </a>
+    </span>
 
     <%= render 'layouts/footer' %>
   </body>

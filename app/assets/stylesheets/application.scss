@@ -76,6 +76,19 @@ body {
   margin: 30px 30px 55px;
 }
 
+// トップへ戻るボタン
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1;
+}
+
+.arrow {
+  width: 30px;
+  height: 30px;
+}
+
 // ログイン/新規登録画面レイアウト
 .login {
   background-image: image-url("login_photo.jpeg");
@@ -188,7 +201,7 @@ h3 {
 }
 
 .content__url {
-  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .content__btn {
@@ -276,12 +289,12 @@ footer p {
     min-height: 90vh;
     background-image: image-url("login_photo2.jpeg");
   }
-  
+
   img.header__logo {
     display: block;
     margin: 0 auto;
   }
-  
+
   .header__nav ul {
     display: block;
     font-size: 13px;
@@ -293,7 +306,7 @@ footer p {
   .header__nav li {
     margin: 0 2px;
   }
-  
+
   .about {
     color: #000000;
     margin: 100px auto;
@@ -302,12 +315,12 @@ footer p {
   .user__box {
     margin: 100px 0 0;
   }
-  
+
   .content {
     display: block;
     text-align: center;
   }
-  
+
   .content__image {
     text-align: center;
   }
@@ -317,7 +330,7 @@ footer p {
     font-weight: bold;
     margin: 10px 30px;
   }
-  
+
   th, td {
     display: list-item;
     list-style: none;
@@ -327,25 +340,26 @@ footer p {
 }
 
 @media screen and (max-width:425px) {
-  
+
   .btn1 {
     z-index: 0;
   }
-  
+
   .btn2 {
     z-index: 0;
   }
-  
+
   header {
     height: 50px;
     width: 100%;
     display: block;
   }
 
+　// menuボタン
   .menu__open, .menu__close {
     display: block;
   }
-  
+
   .menu__open {
     position: absolute;
     top: 20px;
@@ -354,7 +368,7 @@ footer p {
     font-weight: bold;
     font-family: fantasy;
   }
-  
+
   .header__nav ul {
     z-index: 1;
     position: absolute;
@@ -367,15 +381,15 @@ footer p {
     transition: all 0.2s;
     background-color: #FFFFFF;
   }
-  
+
   .header__nav li {
     display: block;
   }
-
+  
   input[type="checkbox"]:checked ~ .header__nav ul {
     left: 0;
   }
-  
+
   input[type="checkbox"]:checked ~ .menu__back {
     position: absolute;
     width: 100%;
@@ -403,7 +417,7 @@ footer p {
     font-weight: bold;
     margin: 10px 30px;
   }
-  
+
   .top__search {
     text-align: center;
   }
