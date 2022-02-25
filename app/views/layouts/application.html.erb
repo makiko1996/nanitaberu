@@ -4,7 +4,7 @@
     <title>ナニタベル</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--font-awesome読み込み-->
     <script src="https://kit.fontawesome.com/a8d8b5ebb4.js" crossorigin="anonymous"></script>
@@ -16,7 +16,7 @@
   <body>
     <%= render 'layouts/header' %>
       <!--エラーメッセージの表示-->
-      <% unless current_page?(new_user_session_path || new_user_registration_path || new_admin_session_path) then %>
+      <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_admin_session_path) then %>
         <p class="notice">
           <%= notice %>
         </p>
@@ -24,7 +24,7 @@
 
 
     <%= yield %>
-    
+
     <span id="page__top">
       <a href="">
         <%= image_tag asset_path('arrow.png'), data: {"turbolinks"=>false}, class: 'arrow' %>
@@ -33,5 +33,5 @@
 
     <%= render 'layouts/footer' %>
   </body>
-  
+
 </html>

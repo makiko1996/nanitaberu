@@ -2,27 +2,25 @@
   <h3>投稿詳細</h3>
   <div class="content">
     <!--投稿画像の表示-->
-    <div class="content__image">
-      <%= attachment_image_tag @post, :image, size: "400x300" %>
-    </div>
+    <%= attachment_image_tag @post, :image, class: "content__image" %>
     
     <!--投稿詳細の表示-->
     <div class="content__body">
       <h3>
         <%= @post.cooking_name %>
       </h3>
-      <%= @post.user.name %></br>
-      料理カテゴリー：<%= @post.category.name %></br>
+      <%= @post.user.name %><br>
+      料理カテゴリー：<%= @post.category.name %><br>
       <!--関連するタグの表示-->
       <div class="content__tag">
         食材：
         <% @post_tags.each do |tag| %>
           <%= tag.tag_name %>
-        <% end %></br>
+        <% end %><br>
       </div>
       <!--難易度を星に変換して表示-->
-      <%= @post.display_difficulty %></br>
-      オモさ：<%= @post.taste.name %></br>
+      <%= @post.display_difficulty %><br>
+      オモさ：<%= @post.taste.name %><br>
     
       <% if @post.url.present? %>
         参考レシピURL：
